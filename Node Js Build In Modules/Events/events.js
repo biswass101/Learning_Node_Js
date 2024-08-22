@@ -1,10 +1,12 @@
-const EventEmitter = require('events') //this module returns a class
+// const EventEmitter = require('events') //this module returns a class
 
-const emitter = new EventEmitter() // making object of that class
+// const emitter = new EventEmitter() // making object of that class
 
+const School = require('./school') //getting a class
+const scl = new School()
 //Registering a listener for bellring event
 
-emitter.on('bellRing', ({period, text}) => {
+scl.on('bellRing', ({period, text}) => {
     console.log("We neen to get out from the class, " + period + " " + text);
 })
 
@@ -22,9 +24,14 @@ emitter.on('bellRing', ({period, text}) => {
 // }, 2000)
 
 //any type of data can be use as a parameter-->
-setTimeout(() => {
-    emitter.emit('bellRing', {
-        period : 'second',
-        text : 'period ended',
-    })
-}, 2000)
+// setTimeout(() => {
+//     emitter.emit('bellRing', {
+//         period : 'second',
+//         text : 'period ended',
+//     })
+// }, 2000)
+
+
+//rasing event form another js file-->
+
+scl.startPeriod()
